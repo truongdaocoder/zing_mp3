@@ -77,9 +77,9 @@ const app = {
     },
     {
       name: "Sao Cũng Được",
-      img: "./assets/img/songs/Sao-Cung-Duoc-MIT-REMIX-Thanh-Dat.webp",
+      img: "./assets/img/song/Sao-Cung-Duoc-MIT-REMIX-Thanh-Dat.webp",
       singer: "Thành Đạt",
-      path: "./assets/song/Sao-Cung-Duoc-MIT-REMIX-Thanh-Dat.mp3",
+      path: "./assets/songs/Sao-Cung-Duoc-MIT-REMIX-Thanh-Dat.mp3",
       duration: "05:35",
     },
     {
