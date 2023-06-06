@@ -130,11 +130,17 @@ const app = {
     localStorage.setItem("song", JSON.stringify(this.conFig));
   },
   getConfig() {
-    this.currentIndex = this.conFig.currentIndex;
-    this.isRandom = this.conFig.isRandom;
-    this.isRepeat = this.conFig.isRepeat;
-    $(".js-random-song").classList.toggle("random--active", this.isRandom);
-    $(".js-repeat-song").classList.toggle("repeat--active", this.isRepeat);
+    if (this.conFig.currentIndex) {
+      this.currentIndex = this.conFig.currentIndex;
+    }
+    if (this.conFig.isRandom) {
+      this.isRandom = this.conFig.isRandom;
+      $(".js-random-song").classList.toggle("random--active", this.isRandom);
+    }
+    if (this.conFig.isRepeat) {
+      this.isRepeat = this.conFig.isRepeat;
+      $(".js-repeat-song").classList.toggle("repeat--active", this.isRepeat);
+    }
   },
   addTheme() {
     const _this = this;
