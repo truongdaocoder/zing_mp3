@@ -1,0 +1,56 @@
+/*laptop* 10225 - 1366*/
+@media screen and (min-width: 64.0625em) and (max-width: 85.375em) {
+}
+@media screen and (max-width: 64em) {
+  .option__artist-heading,
+  .option__mv-heading,
+  .option__song-heading,
+  .option__playlist-heading {
+    justify-content: center;
+  }
+  .main-container {
+    right: 0;
+    left: 0;
+  }
+  .header__wrapper {
+    right: 0;
+    left: 0;
+  }
+  .option__artist-item,
+  .option__mv-item,
+  .tablet-mt-b {
+    margin-bottom: 10px;
+  }
+}
+/*mobile tablet 740-1024*/
+@media screen and (min-width: 46.25em) and (max-width: 64em) {
+  .hide-tablet {
+    display: none;
+  }
+
+  .music__option-list {
+    width: 400px;
+  }
+}
+
+/*mobile*/
+@media screen and (max-width: 46.1875em) {
+  .hide-mobile {
+    display: none;
+  }
+
+  .music__option-list {
+    width: 320px;
+  }
+  .music__option-item {
+    font-size: 1.1rem;
+  }
+  .main-container-zingchart {
+    margin: 90px 20px 0 20px;
+  }
+  .main-music-control {
+    padding: 0 0 0 6px;
+    bottom: 60px;
+    height: 60px;
+  }
+}

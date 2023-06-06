@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #333;
+  --primary-color: #ed2b91;
+  --sub-color: #6a39af;
+  --header-height: 70px;
+  --header-color-0: #37075d;
+  --header-color-1: #282828;
+  --header-color-2: #061d50;
+  --header-color-3: #e7dfdd;
+  --header-color-4: #b2d8db;
+  --header-color-5: #f9dbdb;
+  --header-color-6: #bab8c3;
+  --header-color-7: #ffffff;
+  --option-color-0: #816399;
+  --option-color-1: #787878;
+  --option-color-2: #637191;
+  --option-color-3: #e5e2e0;
+  --option-color-4: #d9ecee;
+  --option-color-5: #eee0dc;
+  --option-color-6: #c9c8cf;
+  --option-color-7: #ffffff;
+  --search-color-0: rgb(106, 57, 175);
+  --search-color-1: #3e3e3e;
+  --search-color-2: #1f3461;
+  --search-color-3: #fffffe;
+  --search-color-4: #fffffe;
+  --search-color-5: #fffffe;
+  --search-color-6: #fffffe;
+  --search-color-7: #f2f2f2;
+  --blur-input-color-0: hsla(0, 0%, 100%, 0.1);
+  --blur-input-color-1: #3e3e3e;
+  --blur-input-color-2: #1f3461;
+  --blur-input-color-3: rgb(218, 214, 211);
+  --blur-input-color-4: rgb(201, 228, 230);
+  --blur-input-color-5: rgb(230, 210, 205);
+  --blur-input-color-6: rgb(177, 176, 186);
+  --blur-input-color-7: #f2f2f2;
+  --sidebar-bg: rgba(255, 255, 255, 0.05);
+  --active-color: rgba(255, 255, 255, 0.1);
+
+  --blur-color: rgba(255, 255, 255, 0.5);
+  --side-padding: 28px;
+  --next-song-width: 329px;
+  --next-song-width-laptop: 250px;
+  --sidebar-width: 200px;
+  --music-control-height: 90px;
+  --header-height: 70px;
+  --search-width: 540px;
+  --search-height: 40px;
+  --profile-height: 180px;
+}
+.main {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background-size: contain;
+}
+.btn {
+  height: 28px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  font-weight: 300;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: 14px;
+}
+
+.align-center {
+  align-items: center;
+}
+.h-full {
+  height: 100%;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

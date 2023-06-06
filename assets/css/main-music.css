@@ -1,0 +1,276 @@
+.main-music-control {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-image: url(../img/mainmusic/theme1.png);
+  height: var(--music-control-height);
+  z-index: 9999;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  background-position-x: 50%;
+  background-position-y: center;
+  padding: 0 20px;
+}
+.music-control__left {
+  display: flex;
+  align-items: center;
+  transition: transform 1s;
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+.music-control__left-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--white-color);
+  background-size: contain;
+  cursor: pointer;
+}
+.music-control__left-content {
+  margin-left: 12px;
+  flex: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.music-control__left-content-song {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--white-color);
+}
+.music-control__left-content-singer {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-top: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.music-control__left-action {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.music-control__left-action-tym-non,
+.music-control__left-action-tym {
+  color: var(--primary-color);
+}
+.music-control__left-action-tym-non {
+  display: none;
+}
+.music-control__left-action-tym-non,
+.music-control__left-action-tym,
+.music-control__left-action-option {
+  font-size: 1.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 9px 9px;
+}
+.music-control__left-action-tym-non:hover,
+.music-control__left-action-tym:hover,
+.music-control__left-action-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.music-control__left-action-option {
+  margin-left: 6px;
+  color: white;
+}
+/*center*/
+.music-control__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
+  height: var(--music-control-height);
+}
+.music-control__center-action {
+  display: flex;
+  align-items: center;
+}
+.music-control__icon i {
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 8px;
+  position: relative;
+}
+
+.music-control__icon1 {
+  font-size: 1.6rem;
+  padding: 8px;
+}
+
+.music-control__icon2 {
+  font-size: 2.6rem;
+  padding: 4px 10px;
+}
+
+.music-control__icon3 {
+  font-size: 1.7rem;
+  padding: 9px 11px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.music-control__icon33 {
+  font-size: 1.7rem;
+  padding: 9px 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: none;
+}
+
+.music-control__icon4 {
+  font-size: 2.6rem;
+  padding: 4px 10px;
+}
+.music-control__icon5 {
+  font-size: 1.6rem;
+  padding: 8px;
+}
+.music-control__icon1:hover,
+.music-control__icon2:hover,
+.music-control__icon4:hover,
+.music-control__icon5:hover {
+  background-color: var(--active-color);
+}
+.music-control__icon-play:hover .music-control__icon33,
+.music-control__icon-play:hover .music-control__icon3 {
+  color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color) !important;
+}
+.music-control__icon-play.play .music-control__icon3 {
+  display: none;
+}
+.music-control__icon-play.play .music-control__icon33 {
+  display: block;
+}
+.music-control__progress {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-top: 10px;
+}
+.music-control__progress-time-duration,
+.music-control__progress-time-start {
+  white-space: nowrap;
+  font-size: 1.3rem;
+}
+.music-control__right {
+  display: flex;
+  align-items: center;
+  color: var(--white-color);
+  justify-content: right;
+}
+.music-control__progress-input {
+  width: 100%;
+  margin: 0 10px;
+  height: 3px;
+  -webkit-appearance: none;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  cursor: pointer;
+}
+.music-control__progress-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  width: 12px;
+  height: 12px;
+  border-radius: 100rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.music-control__progress-input:hover {
+  height: 5px;
+}
+.music-control__right i {
+  cursor: pointer;
+  border-radius: 50%;
+}
+.music-control__right-icon1 {
+  font-size: 1.4rem;
+  margin-right: 2px;
+  padding: 9px 8px 9px 8px;
+  color: var(--blur-color);
+}
+.music-control__right-icon2 {
+  font-size: 1.4rem;
+  margin-right: 2px;
+  padding: 9px 12px 9px 12px;
+}
+
+.music-control__right-icon3 {
+  font-size: 1.4rem;
+  margin-right: 2px;
+  padding: 9px 10px 9px 10px;
+}
+
+.music-control__right-icon4,
+.music-control__right-icon5 {
+  font-size: 2rem;
+  margin-right: -9px;
+}
+.music-control__right-icon4 {
+  padding: 6px 9px 6px 9px;
+}
+
+.music-control__right .music-control__right-icon5 {
+  padding: 6px 6px 6px 7px;
+  display: none;
+}
+.music-control__volume-input {
+  width: 70px;
+  margin: 0 10px;
+  -webkit-appearance: none;
+  height: 3px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.music-control__volume-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-control__volume-input:hover {
+  height: 5px;
+}
+.music-control__volume-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 100rem;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.music-control__right-volume-icon.mute .music-control__right-icon5 {
+  display: block;
+}
+.music-control__right-volume-icon.mute .music-control__right-icon4 {
+  display: none;
+}
+.music-control__right i:hover {
+  background-color: var(--active-color);
+}
+.music-control__icon1.random--active {
+  color: #ed2b91 !important;
+}
+.music-control__icon5.repeat--active {
+  color: #ed2b91 !important;
+}
