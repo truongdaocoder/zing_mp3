@@ -889,6 +889,15 @@ const app = {
       this.currentSong.duration;
     audio.src = this.currentSong.path;
   },
+  loadCurrentSongMobile() {
+    $(
+      ".mobile-player__body-thumb"
+    ).style.backgroundImage = `url(${this.currentSong.img})`;
+    $(".mobile-player__body-now-name").innerHTML = this.currentSong.name;
+    $(".mobile-player__body-now-singer").innerHTML = this.currentSong.singer;
+    $(".mobile-player__ctrl-progress-time-duration").innerHTML =
+      this.currentSong.duration;
+  },
   makeSongRandom(a) {
     let index = Math.floor(Math.random() * this.songs.length);
     while (a.includes(index)) {
@@ -901,6 +910,7 @@ const app = {
     this.currentIndex = index;
     this.setConfig("currentIndex", this.currentIndex);
     this.loadCurrentSong();
+    this.loadCurrentSongMobile();
   },
   nextSong() {
     this.currentIndex++;
@@ -908,6 +918,7 @@ const app = {
       this.currentIndex = 0;
     }
     this.loadCurrentSong();
+    this.loadCurrentSongMobile();
     this.setConfig("currentIndex", this.currentIndex);
   },
   preySong() {
@@ -949,6 +960,7 @@ const app = {
               e.target.closest(".js-song-item").dataset.index
             );
             _this.loadCurrentSong();
+            _this.loadCurrentSongMobile();
             _this.isPlay = true;
             audio.play();
           }
@@ -971,6 +983,7 @@ const app = {
               e.target.closest(".nextsong-item").dataset.index
             );
             _this.loadCurrentSong();
+            _this.loadCurrentSongMobile();
             _this.isPlay = true;
             audio.play();
           }
@@ -992,6 +1005,7 @@ const app = {
           (audio.currentTime * 100) / audio.duration
         );
         progress.value = currentTime;
+        $(".mobile-player__ctrl-progress-input").value = currentTime;
         let minute = Math.floor(audio.currentTime / 60);
         let second = Math.floor(audio.currentTime % 60);
         if (second < 10) {
@@ -1002,10 +1016,18 @@ const app = {
         }
         $(".music-control__progress-time-start").innerHTML =
           minute + ":" + second;
+        $(".mobile-player__ctrl-progress-time-start").innerHTML =
+          minute + ":" + second;
       }
     };
+    //PC
     progress.oninput = function () {
       let currentValue = progress.value;
+      audio.currentTime = (currentValue * audio.duration) / 100;
+    };
+    //MOBILE//
+    $(".mobile-player__ctrl-progress-input").oninput = function () {
+      let currentValue = $(".mobile-player__ctrl-progress-input").value;
       audio.currentTime = (currentValue * audio.duration) / 100;
     };
     prey.onclick = function () {
@@ -1214,6 +1236,40 @@ const app = {
         }
       };
     });
+    // CHUYEN TAB MOBILE
+    $$(".js__mobile-tab__item").forEach((element) => {
+      element.onclick = (e) => {
+        $$(".js__mobile-tab__item").forEach((e) => {
+          e.classList.remove("mobile-tab__item--active");
+        });
+        switch (e.target.textContent.trim()) {
+          case "Khám Phá":
+            $(".profile").classList.add("hide");
+            $(".container-discover__slider").classList.remove("hide");
+            $(".music__option").classList.add("hide");
+            $(".option__song").classList.add("hide");
+            $(".main-container-pertional").classList.remove("hide");
+            $(".main-container-zingchart").classList.add("hide");
+
+            break;
+          case "Cá Nhân":
+            $(".profile").classList.remove("hide");
+            $(".container-discover__slider").classList.add("hide");
+            $(".music__option").classList.remove("hide");
+            $(".option__song").classList.remove("hide");
+            $(".main-container-pertional").classList.remove("hide");
+            $(".main-container-zingchart").classList.add("hide");
+
+            break;
+          case "#zingchart":
+            $(".main-container-pertional").classList.add("hide");
+            $(".main-container-zingchart").classList.remove("hide");
+
+            break;
+        }
+        e.target.classList.add("mobile-tab__item--active");
+      };
+    });
     //XEM LIST TOP 100
     $(".js__zingchart__100more").onclick = function (e) {
       _this.renderZingchart(_this.songs.length);
@@ -1269,6 +1325,7 @@ const app = {
     this.renderNextsongLast();
     this.defineProperties();
     this.loadCurrentSong();
+    this.loadCurrentSongMobile();
     this.handleEvents();
     this.scrollIntoView();
   },

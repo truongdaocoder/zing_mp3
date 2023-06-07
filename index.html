@@ -359,12 +359,12 @@
                 />
               </div>
               <div
-                class="container-discover__slider-left mobile-hiden js__container-discover__slider-left"
+                class="container-discover__slider-left js__container-discover__slider-left"
               >
                 <i class="fas fa-chevron-left js__main-color"></i>
               </div>
               <div
-                class="container-discover__slider-right mobile-hiden js__container-discover__slider-right"
+                class="container-discover__slider-right js__container-discover__slider-right"
               >
                 <i class="fas fa-chevron-right js__main-color"></i>
               </div>
@@ -379,7 +379,7 @@
                 <li class="music__option-item js__main-color">Bài Hát</li>
                 <li class="music__option-item js__main-color">Playlist</li>
                 <li class="music__option-item js__main-color">Nghệ Sĩ</li>
-                <li class="music__option-item js__main-color">
+                <li class="music__option-item js__main-color hide-mobile">
                   <i class="fas fa-ellipsis-h"></i>
                 </li>
               </ul>
@@ -1086,7 +1086,7 @@
         <div class="main-music-control">
           <div class="grid h-full">
             <div class="row align-center h-full">
-              <div class="col l-3 s-8 m-8">
+              <div class="col l-3 s-8 m-8 h-full">
                 <div class="music-control__left">
                   <div class="music-control__left-img-box">
                     <div
@@ -1119,7 +1119,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col l-6 s-4 m-4">
+              <div class="col l-6 s-4 m-4 h-full">
                 <div class="music-control__center">
                   <div class="music-control__center-action music-control__icon">
                     <!-- music-control__icon-random--active -->
@@ -1169,8 +1169,8 @@
                   <audio id="audio" src=""></audio>
                 </div>
               </div>
-              <div class="col l-3">
-                <div class="music-control__right hide-mobile hide-tablet">
+              <div class="col l-3 m-0 s-0">
+                <div class="music-control__right">
                   <i
                     class="music-control__right-icon1 fas fa-photo-video js__main-color"
                   ></i>
@@ -1562,6 +1562,105 @@
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab">
+          <ul class="mobile-tab__list">
+            <li
+              class="mobile-tab__item js__mobile-tab__item js__main-color mobile-tab__item--active"
+            >
+              <i class="far fa-play-circle"></i>
+              Cá Nhân
+            </li>
+            <li class="mobile-tab__item js__mobile-tab__item js__main-color">
+              <i class="fas fa-compact-disc"></i>
+              Khám Phá
+            </li>
+            <li class="mobile-tab__item js__mobile-tab__item js__main-color">
+              <i class="fas fa-chart-line"></i>
+              #zingchart
+            </li>
+            <li class="mobile-tab__item js__main-color">
+              <i class="fas fa-broadcast-tower"></i>
+              Radio
+            </li>
+            <li class="mobile-tab__item js__main-color">
+              <i class="far fa-list-alt"></i>
+              Theo Dõi
+            </li>
+          </ul>
+        </div>
+        <div class="mobile-player active">
+          <div class="mobile-player__headding">
+            <img
+              src="./assets/img/logo/small-logo.svg"
+              alt="icon-home"
+              class="mobile-player__headding-img"
+            />
+            <div class="mobile-player__headding-option">
+              <span class="mobile-player__headding-option-item">ĐANG PHÁT</span>
+              <span class="mobile-player__headding-option-item">LYRIC</span>
+            </div>
+            <div class="mobile-player__headding-close">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="mobile-player__body">
+            <div
+              class="mobile-player__body-thumb"
+              style="background-image: url('./assets/img/songs/4.webp')"
+            ></div>
+            <div class="mobile-player__body-now">
+              <span class="mobile-player__body-now-name">Vui Lắm Nha</span>
+              <span class="mobile-player__body-now-singer"
+                >Hương Ly, Jombie, RIN Music Remix</span
+              >
+              <span class="mobile-player__body-now-extra">Remix Version</span>
+            </div>
+          </div>
+          <div class="mobile-player__ctrl">
+            <div class="music-control__center-action music-control__icon">
+              <!-- music-control__icon-random--active -->
+              <i
+                class="fas fa-random music-control__icon1 mobile-player__ctrl-icon js__mobile-player__ctrl-icon1"
+              ></i>
+              <i
+                class="fas fa-caret-left music-control__icon2 mobile-player__ctrl-icon js__mobile-player__ctrl-icon2"
+              ></i>
+              <!-- music-control__icon-play--active -->
+              <div
+                class="music-control__icon-play mobile-player__ctrl-icon js__mobile-player__ctrl-icon music-control__icon-play--active"
+              >
+                <i class="fas fa-play music-control__icon3"></i>
+                <i class="fas fa-pause music-control__icon33"></i>
+              </div>
+              <i
+                class="fas fa-caret-right music-control__icon4 mobile-player__ctrl-icon js__mobile-player__ctrl-icon4"
+              ></i>
+              <!-- music-control__icon-repeat--active -->
+              <i
+                class="fas fa-redo music-control__icon5 mobile-player__ctrl-icon js__mobile-player__ctrl-icon5"
+              ></i>
+            </div>
+            <div class="music-control__progress mobile-player__ctrl-progress">
+              <span
+                class="music-control__progress-time-start mobile-player__ctrl-progress-time-start"
+                >00:00</span
+              >
+              <input
+                id="progress2"
+                class="music-control__progress-input mobile-player__ctrl-progress-input"
+                type="range"
+                value="0"
+                step="1"
+                min="0"
+                max="100"
+              />
+              <span
+                class="music-control__progress-time-duration mobile-player__ctrl-progress-time-duration"
+                >05:16</span
+              >
             </div>
           </div>
         </div>
