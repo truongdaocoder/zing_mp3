@@ -127,7 +127,6 @@ function changeSlide2() {
       "container-discover__slider-item-second"
     );
   }
-  console.log(currentIndex2);
 }
 document.querySelector(".js__container-discover__slider-right").onclick =
   function () {

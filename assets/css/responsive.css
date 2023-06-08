@@ -48,6 +48,9 @@
   .container-discover__slider:hover .container-discover__slider-left {
     display: none;
   }
+  .mobile-player.active {
+    top: 0;
+  }
 }
 /*mobile tablet 740-1024*/
 @media screen and (min-width: 46.25em) and (max-width: 64em) {

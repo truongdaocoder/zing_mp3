@@ -927,6 +927,7 @@ const app = {
       this.currentIndex = this.songs.length - 1;
     }
     this.loadCurrentSong();
+    this.loadCurrentSongMobile();
     this.setConfig("currentIndex", this.currentIndex);
   },
   handleEvents() {
@@ -945,6 +946,15 @@ const app = {
         delay: 1000,
       }
     );
+    const cdThumbMobile = $(".mobile-player__body-thumb").animate(
+      [{ transform: "rotate(360deg)" }],
+      {
+        duration: 10000,
+        iterations: Infinity,
+        delay: 1000,
+      }
+    );
+    cdThumbMobile.pause();
     cdThumb.pause();
     playLists.forEach((element, index) => {
       element.onclick = function (e) {
@@ -992,6 +1002,7 @@ const app = {
         }
       };
     });
+    // play PC
     playBtn.onclick = function () {
       if (_this.isPlay) {
         audio.pause();
@@ -999,6 +1010,15 @@ const app = {
         audio.play();
       }
     };
+    //play mobile
+    $(".js__mobile-player__ctrl-icon").onclick = function () {
+      if (_this.isPlay) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+    };
+
     audio.ontimeupdate = function () {
       if (audio.duration) {
         let currentTime = Math.floor(
@@ -1030,6 +1050,7 @@ const app = {
       let currentValue = $(".mobile-player__ctrl-progress-input").value;
       audio.currentTime = (currentValue * audio.duration) / 100;
     };
+    //PC
     prey.onclick = function () {
       if (_this.isRandom) {
         _this.makeSongRandom(arrRandom);
@@ -1048,7 +1069,31 @@ const app = {
       _this.isPlay = true;
       audio.play();
     };
-
+    //MOBILE
+    //next
+    $(".js__mobile-player__ctrl-icon4").onclick = function () {
+      if (_this.isRandom) {
+        _this.makeSongRandom(arrRandom);
+      } else {
+        _this.nextSong();
+      }
+      _this.isPlay = true;
+      audio.play();
+    };
+    //prey
+    $(".js__mobile-player__ctrl-icon2").onclick = function () {
+      if (_this.isRandom) {
+        _this.makeSongRandom(arrRandom);
+      } else {
+        _this.preySong();
+      }
+      _this.isPlay = true;
+      audio.play();
+    };
+    //CLOSE MOBILE
+    $(".mobile-player__headding-close").onclick = function () {
+      $(".mobile-player").classList.remove("active");
+    };
     $(".js-repeat-song").onclick = function () {
       _this.isRepeat = !_this.isRepeat;
       this.classList.toggle("repeat--active", _this.isRepeat);
@@ -1062,8 +1107,10 @@ const app = {
     audio.onplay = function () {
       _this.isPlay = true;
       cdThumb.play();
+      cdThumbMobile.play();
       _this.scrollIntoView();
-      playBtn.classList.toggle("play", _this.isPlay);
+      playBtn.classList.toggle("play", _this.isPlay); // play pc
+      $(".js__mobile-player__ctrl-icon").classList.toggle("play", _this.isPlay); //play mobile
       playLists.forEach((e) => {
         e.classList.remove("song-item--active");
       });
@@ -1120,12 +1167,14 @@ const app = {
     audio.onpause = function () {
       _this.isPlay = false;
       cdThumb.pause();
+      cdThumbMobile.pause();
       $(".music-control__left").style.transform = "translateX(0px)";
       imgs[_this.currentIndex].classList.remove("song-item--active-onplay");
       imgNextsongs[_this.currentIndex].classList.remove(
         "nextsong-item--active-onplay"
       );
       playBtn.classList.toggle("play", _this.isPlay);
+      $(".js__mobile-player__ctrl-icon").classList.toggle("play", _this.isPlay);
     };
     audio.onended = function () {
       if (_this.isRepeat) {
@@ -1315,6 +1364,10 @@ const app = {
         ).style.backgroundColor = `var(--option-color-${_this.backgroundIndex})`;
       };
     });
+    // show music mobile
+    $(".main-music-control").onclick = function () {
+      $(".mobile-player").classList.add("active");
+    };
   },
   start() {
     this.getConfig();
